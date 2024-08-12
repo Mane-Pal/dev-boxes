@@ -14,6 +14,12 @@ RUN pacman -Syu --noconfirm && \
 
 FROM archaur AS devcontainer
 
+# Ensure symbolic links are correctly set without causing loops
+RUN ln -fs /bin/sh /usr/bin/sh && \
+    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/docker && \
+    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/flatpak && \
+    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/podman && \
+    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/transactional-update
 # Copy the necessary files into the container
 COPY ./toolbox-packages /toolbox-packages
 
@@ -35,10 +41,4 @@ RUN pacman -S --noconfirm curl && \
     printf 'LANG=en_GB.UTF-8\nexport LANG\nSTARSHIP_CONFIG=/etc/starship.toml\nexport STARSHIP_CONFIG\neval "$(atuin init zsh)"\neval "$(zoxide init zsh --cmd cd)"\neval "$(starship init zsh)"' >> /etc/zsh/zshrc && \
     rm -rf /tmp/*
 
-# Ensure symbolic links are correctly set without causing loops
-RUN ln -fs /bin/sh /usr/bin/sh && \
-    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/docker && \
-    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/flatpak && \
-    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/podman && \
-    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/transactional-update
 
