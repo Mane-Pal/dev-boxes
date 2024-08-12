@@ -3,7 +3,7 @@ set ignore-comments := true
 
 _default:
     #!/usr/bin/bash
-    source /usr/lib/ujust/libformatting.sh
+    source /usr/share/dev-work/bash-formatting.sh
     /usr/bin/dev-work --list --list-heading $'Available commands:\n' --list-prefix $' - '
 
 # Imports
