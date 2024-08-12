@@ -30,8 +30,6 @@ RUN pacman -S --noconfirm curl && \
     echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen && \
     echo 'LANG=en_US.UTF-8' > /etc/locale.conf && \
-    mkdir -p /usr/share/ && \
-    curl -fsSL https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh -o /usr/share/bash-preexec && \
     printf 'LANG=en_US.utf8\nexport LANG\n' > /etc/profile.d/locale.sh && \
     printf 'LANG=en_US.utf8\nexport LANG\nSTARSHIP_CONFIG=/etc/starship.toml\nexport STARSHIP_CONFIG\neval "$(atuin init zsh)"\neval "$(zoxide init zsh --cmd cd)"\neval "$(starship init zsh)"' >> /etc/zsh/zshrc && \
     rm -rf /tmp/*
