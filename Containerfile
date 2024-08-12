@@ -30,11 +30,11 @@ COPY ./files /
 
 # Configure Locales and install bash-preexec
 RUN pacman -S --noconfirm curl && \
-    echo "en_DK.UTF-8 UTF-8" > /etc/locale.gen && \
+    echo "en_GB.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen && \
-    echo 'LANG=en_DK.UTF-8' > /etc/locale.conf && \
-    printf 'LANG=en_DK.utf8\nexport LANG\n' > /etc/profile.d/locale.sh && \
-    printf 'LANG=en_DK.utf8\nexport LANG\nSTARSHIP_CONFIG=/etc/starship.toml\nexport STARSHIP_CONFIG\neval "$(atuin init zsh)"\neval "$(zoxide init zsh --cmd cd)"\neval "$(starship init zsh)"' >> /etc/zsh/zshrc && \
+    echo 'LANG=en_GB.UTF-8' > /etc/locale.conf && \
+    printf 'LANG=en_GB.utf8\nexport LANG\n' > /etc/profile.d/locale.sh && \
+    printf 'LANG=en_GB.utf8\nexport LANG\nSTARSHIP_CONFIG=/etc/starship.toml\nexport STARSHIP_CONFIG\neval "$(atuin init zsh)"\neval "$(zoxide init zsh --cmd cd)"\neval "$(starship init zsh)"' >> /etc/zsh/zshrc && \
     rm -rf /tmp/*
 
 
@@ -45,5 +45,3 @@ RUN   ln -fs /bin/sh /usr/bin/sh && \
       ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/rpm-ostree && \
       ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/transactional-update
 
-# Clean up package cache
-RUN pacman -Scc --noconfirm
