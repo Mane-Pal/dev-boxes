@@ -2,9 +2,10 @@
 
 uid := `id -u`
 shell := `grep :$(id -u): /etc/passwd | cut -d: -f7`
+set shell := ["bash", "-cu"]
 
 setup-gamescanner:
-    virtualenv venv
-    source venv/bin/activate
-    pip install -r gamescanner-terminal-deps.txt
-
+    sudo pacman -S --noconfirm python python-pip python-virtualenv
+    python -m venv ./venv
+    source ./venv/bin/activate
+    pip install -r /usr/share/dev-work/gamescanner-dev-env.txt

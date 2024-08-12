@@ -1,5 +1,5 @@
 #!/usr/bin/bash
 
-/usr/bin/just --justfile /usr/share/dev-work/justfile "${@}"
+/usr/bin/just -d $PWD --justfile /usr/share/dev-work/justfile "${@}"
 
 
