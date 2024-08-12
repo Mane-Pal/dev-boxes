@@ -6,6 +6,7 @@ set shell := ["bash", "-cu"]
 
 setup-gamescanner:
     sudo pacman -S --noconfirm python python-pip python-virtualenv
+    yay -S --noconfirm libxcrypt-compat
     python -m venv ./.venv
     source ./.venv/bin/activate
-    pip install -r /usr/share/dev-work/snapshot-deps.txt
+    pip install -r /usr/share/dev-work/requirements.txt
