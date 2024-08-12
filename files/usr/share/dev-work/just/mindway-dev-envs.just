@@ -8,4 +8,4 @@ setup-gamescanner:
     sudo pacman -S --noconfirm python python-pip python-virtualenv
     python -m venv ./.venv
     source ./.venv/bin/activate
-    bash /usr/bin/install-gamescanner-deps
+    pip install -r /usr/share/dev-work/snapshot-deps.txt
