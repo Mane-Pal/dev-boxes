@@ -57,7 +57,6 @@ If you use toolbx:
 
 Use `chezmoi` to pull down your dotfiles and set up git sync.
 
-
 ### Make your own
 
 Fork and add programs to this this image - over time you'll end up with the perfect CLI for you.
@@ -65,24 +64,6 @@ Keeping it as a pet works, though the author recommends leaving all your config 
 
 The user experience is much nicer if you [set your terminal open right in the container](https://distrobox.privatedns.org/useful_tips/#using-distrobox-as-main-cli) and is the intended experience. 
 
-## Why?
-
-While LTS images pay the bills they move at that pace for a reason, I wanted:
-
-- Something that kept up the pace with cloud native tech
-- Expansive repos so all stack needs are covered
-  - But also has all the cool new tools the rustaceans keep cranking out
-- apk is _fast_
-
-And of course, as the user space for a cloud-native desktop the biggest reason is it's everywhere in the stack, why not be the "default terminal"?
-
-Also, I've never gotten really to know Alpine, the problem with running distros like this bare metal on my PC is that there's a whole bunch of hardware quirks and all sorts of little enablement things that more generalized distros tend to get right. 
-
-But in a Toolbx/Distrobox world the kernel and anything that talks to hardware is handled by the host operating system.
-This let's us concentrate on just the CLI experience, get yourself some of that UNIX bling.
-Also apk is fast. Watch the video for more!
-
-[![Video Recording](https://img.youtube.com/vi/7-FPAWjROos/0.jpg)](https://youtu.be/7-FPAWjROos)
 
 ## Verification
 
