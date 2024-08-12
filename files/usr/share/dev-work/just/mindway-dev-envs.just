@@ -6,6 +6,6 @@ set shell := ["bash", "-cu"]
 
 setup-gamescanner:
     sudo pacman -S --noconfirm python python-pip python-virtualenv
-    python -m venv ./venv
-    source ./venv/bin/activate
-    pip install -r /usr/share/dev-work/gamescanner-dev-env.txt
+    python -m venv ./.venv
+    source ./.venv/bin/activate
+    bash /usr/bin/install-gamescanner-deps
