@@ -14,12 +14,6 @@ RUN pacman -Syu --noconfirm && \
 
 FROM archaur AS devcontainer
 
-# Ensure symbolic links are correctly set without causing loops
-RUN ln -fs /bin/sh /usr/bin/sh && \
-    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/docker && \
-    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/flatpak && \
-    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/podman && \
-    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/transactional-update
 # Copy the necessary files into the container
 COPY ./toolbox-packages /toolbox-packages
 
