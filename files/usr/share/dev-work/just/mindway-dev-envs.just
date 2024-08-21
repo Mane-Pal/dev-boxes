@@ -9,4 +9,6 @@ setup-gamescanner:
     yay -S --noconfirm libxcrypt-compat
     python -m venv ./.venv
     source ./.venv/bin/activate
+
+gamescanner-dependencies:
     pip install -r /usr/share/dev-work/requirements.txt
